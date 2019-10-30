@@ -14,11 +14,18 @@ public:
 class Drv: public Base
 {
 public:
-    using Base::func; // 这句使基类中的func系列函数不会被隐藏（只能被隐藏同名同参数的一）
+    // 这句使基类中的func系列函数不会被隐藏（只能被隐藏同名同参数的覆写）
+    using Base::func;
     void func(char *x)
     {
         cout << "Drv func(char *x)" <<endl;
     }
+#if 0
+    void func(int a)
+    {
+        cout << "Drv func(int a)" << endl;
+    }   
+#endif
 };
 
 int main() {
